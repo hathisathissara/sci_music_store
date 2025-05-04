@@ -1,0 +1,429 @@
+/* public_html/style.css */
+
+/* --- Imports --- */
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+
+/* --- General Body & Layout --- */
+body {
+    /* Using solid color #0a0a2a is simpler for background */
+    background-color: #0a0a2a; /* Dark blue/purple */
+    color: #00ffcc; /* Cyan text color */
+    font-family: 'Share Tech Mono', monospace; /* Sci-Fi font */
+    min-height: 100vh; /* Ensure body takes full height */
+    position: relative; /* Needed for z-index context for fixed particles/navbar */
+    overflow-x: hidden; /* Prevent horizontal scroll due to fixed elements */
+    margin: 0; /* Ensure no default body margin (fix: removed margin: 100px) */
+    padding: 0; /* Ensure no default body padding (fix: removed padding-left/right/top duplicates) */
+}
+
+/* --- Particles.js Container Styling --- */
+#particles-js {
+    position: fixed; /* Keep particles fixed in the background */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Place the particles *behind* all other content */
+    background-color: #0a0a2a; /* Match the body background */
+    pointer-events: none; /* Allow mouse events to pass through to the content below */
+    margin: 0; /* Ensure no default margin/padding */
+    padding: 0;
+    overflow: hidden; /* Hide any particle overflow */
+    /* Removed duplicate z-index */
+}
+
+/* IMPORTANT FIX: Ensure the canvas inside particles-js also ignores pointer events */
+#particles-js canvas {
+    pointer-events: none;
+}
+
+/* --- Navbar Styling --- */
+.navbar {
+    /* Navbar is no longer fixed - it will scroll with the page */
+    /* Removed fixed positioning properties */
+    /* position: fixed; top: 0; left: 0; width: 100%; */
+
+    /* --- Adjusted background color opacity --- */
+    background-color: rgba(26, 26, 74, 0.9) !important; /* Dark theme background with slight transparency */
+    border-bottom: 1px solid #00ffff; /* Cyan border */
+    z-index: 10; /* Ensure navbar is on top of regular content */
+    /* --- Adjusted vertical padding to reduce height --- */
+    padding: 5px 1rem !important; /* Example: Reduced vertical padding */
+}
+.navbar-brand {
+    color: #cc00ff !important; /* Magenta color */
+    text-shadow: 0 0 5px rgba(204, 0, 255, 0.6); /* Magenta glow */
+    font-weight: bold;
+    font-size: 1.5em;
+    /* --- Adjusted vertical padding to reduce height --- */
+    padding: 5px 0 !important; /* Reduced vertical padding */
+}
+.navbar-nav .nav-link {
+    color: #00ffcc !important; /* Cyan link color */
+    transition: color 0.3s ease;
+    /* --- Adjusted vertical padding to reduce height --- */
+    padding: 5px 10px !important; /* Reduced vertical padding */
+}
+.navbar-nav .nav-link:hover {
+    color: #ffffff !important; /* White on hover */
+}
+.navbar-nav .nav-item.active .nav-link {
+    color: #ffffff !important; /* White for active link */
+    font-weight: bold;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.6);
+}
+.navbar-toggler {
+     border-color: rgba(0, 255, 204, 0.5); /* Cyan border for toggler */
+     /* Adjusted padding to make toggler smaller if needed */
+     padding: .25rem .75rem;
+     font-size: 1.25rem;
+     line-height: 1;
+     background-color: transparent;
+     border: 1px solid transparent;
+     border-radius: .25rem;
+}
+.navbar-toggler-icon {
+     /* Corrected SVG Data URL with URL encoding */
+     background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba%280%2C 255%2C 204%2C 1%29' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E"); /* Cyan toggler icon */
+}
+
+
+/* --- Container for Main Content --- */
+.container {
+    position: relative; /* Needs positioning for z-index */
+    z-index: 1; /* Ensure it's above particles */
+    /* Bootstrap's default container has horizontal padding and is centered */
+    /* --- Adjusted margin-top for space after non-fixed navbar --- */
+    /* Should be roughly Navbar height + desired space below */
+    margin-top: 70px; /* Example: Adjust based on reduced navbar height */
+    /* Add padding-bottom for space before footer */
+    padding-bottom: 10px; /* Example: Add space for footer */
+}
+
+/* --- Typography & Headings --- */
+h1, h2, .card-title {
+    color: #cc00ff; /* Magenta */
+    text-shadow: 0 0 8px rgba(204, 0, 255, 0.8); /* Neon glow effect */
+}
+.section-title {
+    /* Inherits h2 styles */
+    margin-bottom: 30px;
+    font-size: 2em;
+    text-align: center; /* Ensure section titles are centered */
+}
+
+
+/* --- General Card Styles --- */
+.card {
+    /* --- Adjusted background color opacity slightly --- */
+    background-color: rgba(26, 26, 74, 0.9); /* Darker blue/purple for cards with slight transparency */
+    border: 1px solid #00ffff; /* Cyan border */
+    color: #00ffcc; /* Cyan text color */
+    margin-bottom: 20px;
+    text-align: center;
+    box-shadow: 0 0 15px rgba(0, 255, 204, 0.4); /* Subtle card glow */
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    position: relative; /* Needed for z-index */
+    z-index: 2; /* Ensure cards are above container and particles */
+    overflow: hidden; /* Ensure content doesn't overflow rounded corners */
+}
+
+.card:hover {
+    -webkit-transform: translateY(-5px);
+    transform: translateY(-5px);
+    box-shadow: 0 5px 20px rgba(0, 255, 204, 0.6);
+}
+
+.card img {
+    /* Base image styles for cards */
+    border-bottom: 1px solid #00ffff;
+    height: 180px; /* Fixed height for smaller card images */
+    object-fit: cover; /* Crop image to fit */
+    width: 100%; /* Ensure image takes full width of container */
+}
+
+.card-body {
+    padding: 1rem;
+}
+
+/* Specific text styles within cards */
+.card-title {
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+    color: #cc00ff; /* Ensure card title color is set */
+    text-shadow: 0 0 8px rgba(204, 0, 255, 0.8); /* Ensure card title text-shadow is set */
+}
+
+.card-subtitle {
+    font-size: 0.9rem;
+    color: rgba(0, 255, 204, 0.8) !important; /* Muted cyan for subtitle */
+}
+
+.card-text {
+    font-size: 0.9rem;
+    color: rgba(0, 255, 204, 0.8); /* Muted cyan */
+    line-height: 1.6;
+}
+
+/* Styles for paragraphs and lists within cards (from your sample) */
+.card p {
+    line-height: 1.6;
+}
+.card ul {
+     text-align: left; /* Align list items to left within centered card */
+     padding-left: 20px; /* Add some indentation for the list */
+}
+.card ul li {
+    margin-bottom: 10px;
+}
+
+
+/* --- General Button Styles --- */
+.btn-buy {
+    background-color: #00ffcc; /* Cyan button */
+    border-color: #00ffcc;
+    color: #1a1a4a; /* Dark text */
+    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 25px; /* Rounded button */
+    transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn-buy:hover {
+     background-color: #cc00ff; /* Magenta hover */
+    border-color: #cc00ff;
+    color: #1a1a4a;
+    box-shadow: 0 0 15px rgba(204, 0, 255, 0.8); /* Magenta glow on hover */
+}
+
+.btn-secondary {
+    background-color: #343a40; /* Dark grey */
+    border-color: #343a40;
+    color: #00ffcc; /* Cyan text */
+    transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+}
+
+.btn-secondary:hover {
+    background-color: #495057;
+    border-color: #495057;
+    color: #ffffff; /* White text */
+}
+
+/* Spinner styling (if Bootstrap default isn't themed) */
+.spinner-border {
+     color: #1a1a4a; /* Dark text color */
+     margin-right: 5px; /* Space between spinner and text */
+}
+
+
+/* --- Play Button Icon Styles (for Anchor Tags) --- */
+/* Styles for the anchor tag acting as a Play button */
+a.btn-play { /* Target the anchor tag with btn-play class */
+    /* Inherit btn styles - HTML should have classes like .btn, .btn-secondary, .btn-sm */
+    display: inline-flex; /* Use flexbox for icon and potential text/spinner */
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: color 0.3s ease; /* Add transition for icon color */
+    text-decoration: none; /* Remove default text decoration */
+    color: inherit; /* Inherit text color from parent */
+}
+
+a.btn-play:hover {
+    text-decoration: none; /* Override default hover styles for anchor tag */
+    color: inherit; /* Inherit color on hover too */
+}
+
+/* Styles for the SVG icon directly inside the anchor tag */
+a.btn-play svg {
+     /* Size for regular play button */
+    width: 1.5em; /* Use relative size based on font size */
+    height: 1.5em;
+    fill: currentColor; /* Use the text color of the button */
+}
+a.btn-play.btn-sm svg {
+    /* Size for small play button */
+    width: 1.2em;
+    height: 1.2em;
+}
+
+/* --- Style for Anchor Tags that Look Like Buttons --- */
+/* Ensure anchor tags with Bootstrap button classes look and behave like buttons */
+a.btn { /* Target any anchor tag with the .btn class */
+    /* Inherit button styles from Bootstrap */
+     text-decoration: none; /* Ensure text decoration is none */
+     /* Ensure proper padding and alignment */
+     display: inline-block;
+     text-align: center;
+     vertical-align: middle;
+     user-select: none;
+     /* Add styles for disabled state on anchors */
+     &.disabled, &[aria-disabled="true"] { /* Fix SASS syntax */
+         pointer-events: none; /* Prevent clicks */
+         opacity: 0.65; /* Visual indication of disabled state */
+     }
+}
+/* Add margin between play and buy buttons (applies to anchor or button) */
+.featured-track-section .d-flex .btn-primary,
+.card-body .d-flex .btn-primary {
+    margin-left: 10px;
+}
+
+/* Adjust spacing within the flex container for buttons */
+.card-body .d-flex {
+    justify-content: center; /* Center buttons horizontally if needed */
+}
+.popular-tracks-section .card-body .d-flex,
+.latest-tracks-section .card-body .d-flex {
+     justify-content: space-between; /* Space out buttons */
+}
+
+
+/* --- New Section Styles --- */
+.hero {
+    background: linear-gradient(45deg, #0a0a2a, #1a1a4a);
+    padding-top: 80px;
+    padding-bottom: 80px;
+}
+.hero h1, .hero p {
+    color: #00ffff;
+    text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+}
+
+.section-title {
+    color: #cc00ff;
+    text-shadow: 0 0 8px rgba(204, 0, 255, 0.8);
+    margin-bottom: 30px;
+    font-size: 2em;
+    text-align: center;
+}
+
+/* Section Backgrounds & Padding */
+.featured-track-section { padding: 40px 0; background-color: #0a0a2a45; }
+.popular-tracks-section { padding: 40px 0; background-color: #0a0a2a45; }
+.latest-tracks-section { padding: 40px 0; background-color: #0a0a2a45; }
+.intro-section {
+     padding: 50px 0;
+     background-color: #1a1a4a34;
+     border-top: 1px solid #00ffff;
+}
+.intro-section h2, .intro-section p { color: #00ffcc; }
+.intro-section .btn-outline-light {
+     color: #00ffcc;
+     border-color: #00ffcc;
+     transition: all 0.3s ease;
+}
+.intro-section .btn-outline-light:hover {
+     background-color: #00ffcc;
+     color: #1a1a4a;
+}
+
+
+.featured-track-section .card {
+     border: 2px solid #cc00ff;
+     box-shadow: 0 0 20px rgba(204, 0, 255, 0.6);
+}
+
+/* Image styling for different card layouts */
+.featured-track-section .card img,
+.latest-tracks-section .card img {
+    height: auto;
+    max-height: 250px;
+    border-bottom: none;
+    border-right: 1px solid #00ffff;
+    object-fit: cover;
+    width: 100%;
+}
+.latest-tracks-section .card .row > .col-md-4 img {
+     height: 180px;
+     max-height: 180px;
+     border-bottom: none;
+     border-right: 1px solid #00ffff;
+}
+.featured-track-section .card .row > .col-md-6 img {
+    border-bottom: none;
+    border-right: 1px solid #00ffff;
+}
+.popular-tracks-section .card img {
+    height: 180px;
+    object-fit: cover;
+     border-bottom: 1px solid #00ffff;
+     border-right: none;
+}
+
+
+/* Adjust Bootstrap Grid Gutters (Bootstrap 4 needs custom spacing) */
+.row.g-4 > .col, .row.g-4 > [class^="col-"] {
+    padding: 1rem;
+}
+
+
+/* --- Bootstrap Modal Custom Styling (Removed) --- */
+/* Modal styling is now removed as we are using a separate player page */
+
+
+/* --- Footer Styling --- */
+footer {
+    /* --- Adjusted background color opacity slightly --- */
+    background-color: rgba(26, 26, 74, 0.9); /* Same dark blue/purple as cards */
+    color: #00ffcc; /* Cyan text color */
+    /* --- Adjusted vertical padding to reduce height --- */
+    padding: 15px 0; /* Example: Reduced vertical padding */
+    margin-top: 40px; /* Add space above footer */
+    border-top: 1px solid #00ffff; /* Add a border */
+    font-size: 0.9em; /* Slightly smaller text */
+    width: 100%; /* Ensure full width */
+    position: relative; /* Ensure above particles */
+    z-index: 1;
+}
+
+footer p {
+    margin-bottom: 0; /* Remove default paragraph bottom margin */
+}
+
+
+/* --- Responsiveness (Media Queries) --- */
+@media (max-width: 768px) { /* Adjust breakpoint as needed (Bootstrap's md) */
+    /* Adjust section padding, etc. */
+     .hero { padding: 40px 0; }
+     .section-title { font-size: 1.7em; }
+     .row.g-4 > .col, .row.g-4 > [class^="col-"] {
+        padding: 0.5rem; /* Smaller gutters on mobile */
+     }
+     body {
+          /* Ensure 0 padding-top on body */
+          padding-top: 0;
+     }
+     /* Adjust image heights or layout for smaller screens if needed */
+     .featured-track-section .card img,
+     .latest-tracks-section .card img {
+         max-height: 150px;
+     }
+     .latest-tracks-section .card .row > .col-md-4 img {
+          height: 120px;
+          max-height: 120px;
+          border-right: none; /* Remove side border on mobile layout if stacked */
+          border-bottom: 1px solid #00ffff; /* Add bottom border on mobile */
+     }
+      .featured-track-section .card .row > .col-md-6 img {
+          border-right: none; /* Remove side border on mobile */
+          border-bottom: 1px solid #00ffff; /* Add bottom border on mobile */
+      }
+
+
+    /* Adjust card row layout for small screens */
+    @media (max-width: 576px) { /* Bootstrap's sm breakpoint */
+         .latest-tracks-section .card .row > .col-md-4,
+         .featured-track-section .card .row > .col-md-6 {
+             /* Ensure columns stack correctly on mobile */
+             flex: 0 0 100%;
+             max-width: 100%;
+         }
+          .latest-tracks-section .card .row > .col-md-8,
+          .featured-track-section .card .row > .col-md-6 {
+             flex: 0 0 100%;
+             max-width: 100%;
+          }
+    }
+
+}
