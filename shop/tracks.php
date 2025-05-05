@@ -105,8 +105,8 @@ if (isset($link) && $link !== false) {
         <div class="col-md-8">
             <form method="get" action="tracks.php">
                 <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Search tracks..." name="search_query" value="<?php echo htmlspecialchars($search_query); ?>">
-                    <button class="btn btn-primary" type="submit">Search</button>
+                    <input type="text" class="form-control bg-dark text-info border-info" placeholder="Search tracks..." name="search_query" value="<?php echo htmlspecialchars($search_query); ?>">
+                    <button class="btn btn-secondary" type="submit">Search</button>
                 </div>
             </form>
         </div>

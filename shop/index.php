@@ -100,8 +100,6 @@ if ($link === false) {
                     <div class="col-md-6">
                         <div class="card-body">
                             <h3 class="card-title"><?php echo htmlspecialchars($featuredTrack['name']); ?></h3>
-                            <!-- Assuming you might add an 'artist' field later -->
-                            <p class="card-subtitle mb-2 text-muted">Artist Name (Placeholder)</p>
                             <div class="d-flex align-items-center">
                                 <!-- Play Button for Featured Track (Now a LINK) -->
                                 <a href="player.php?id=<?php echo $featuredTrack['id']; ?>" class="btn btn-secondary btn-play mr-3 <?php echo empty($featuredTrack['file_name']) ? 'disabled' : ''; ?>" <?php echo empty($featuredTrack['file_name']) ? 'aria-disabled="true"' : ''; ?>>
@@ -154,8 +152,6 @@ if ($link === false) {
                          <?php endif; ?>
                         <div class="card-body">
                             <h5 class="card-title"><?php echo htmlspecialchars($track['name']); ?></h5>
-                            <!-- Assuming artist field -->
-                            <p class="card-subtitle mb-2 text-muted">Artist Name (Placeholder)</p>
                             <div class="d-flex justify-content-between align-items-center">
                                 <!-- Play Button for Popular Track (Now a LINK) -->
                                 <a href="player.php?id=<?php echo $track['id']; ?>" class="btn btn-secondary btn-sm btn-play <?php echo empty($track['file_name']) ? 'disabled' : ''; ?>" <?php echo empty($track['file_name']) ? 'aria-disabled="true"' : ''; ?>>
@@ -215,8 +211,6 @@ if ($link === false) {
                             <div class="col-md-8">
                                 <div class="card-body">
                                     <h5 class="card-title"><?php echo htmlspecialchars($track['name']); ?></h5>
-                                    <!-- Assuming artist field -->
-                                    <p class="card-subtitle mb-2 text-muted">Artist Name (Placeholder)</p>
                                     <div class="d-flex justify-content-between align-items-center">
                                         <!-- Play Button for Latest Track (Now a LINK) -->
                                         <a href="player.php?id=<?php echo $track['id']; ?>" class="btn btn-secondary btn-sm btn-play <?php echo empty($track['file_name']) ? 'disabled' : ''; ?>" <?php echo empty($track['file_name']) ? 'aria-disabled="true"' : ''; ?>>
@@ -234,7 +228,7 @@ if ($link === false) {
             </div>
             <div class="view-all-btn mt-4 text-center">
                 <!-- Link to the full tracks listing page -->
-                <a href="tracks.php" class="btn btn-primary">View All Tracks</a>
+                <a href="tracks.php" class="btn btn-secondary">View All Tracks</a>
             </div>
         </div>
     </section>

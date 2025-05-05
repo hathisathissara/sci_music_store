@@ -21,11 +21,12 @@ $currentPage = basename($_SERVER['PHP_SELF']);
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="style.css"> <!-- Custom Sci-Fi CSS -->
     <!-- GSAP will be included in footer.php, but some libraries might go here if needed early -->
-
     <!-- Add favicon links here if you have one -->
     <link rel="icon" type="image/png" href="images/favicon.png">
     <!-- Animate.css for Hero section animations (if used) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap" rel="stylesheet">
+
 
     <!-- *** You can add page-specific styles here if needed, using PHP *** -->
     <?php if ($currentPage == 'index.php'): ?>

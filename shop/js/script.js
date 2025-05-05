@@ -1,6 +1,6 @@
 // public_html/js/script.js
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
 
     // ** --- Configuration --- **
     const whatsappPhoneNumber = '94701207991'; // Replace with actual number
@@ -12,9 +12,9 @@ document.addEventListener('DOMContentLoaded', function() {
     // ** --- GSAP Animations (Optional) --- **
     // Make sure you have GSAP included in your HTML if you use these
     if (typeof gsap !== 'undefined') {
-        gsap.from(".card", {duration: 1, y: 50, opacity: 0, stagger: 0.2, ease: "back.out(1.7)"});
-        gsap.from("h1", {duration: 1, opacity: 0, y: -30, delay: 0.5});
-         // Add other page-specific animations if needed, maybe wrap in page checks
+        gsap.from(".card", { duration: 1, y: 50, opacity: 0, stagger: 0.2, ease: "back.out(1.7)" });
+        gsap.from("h1", { duration: 1, opacity: 0, y: -30, delay: 0.5 });
+        // Add other page-specific animations if needed, maybe wrap in page checks
     } else {
         console.warn("GSAP library not loaded. Animations skipped.");
     }
@@ -67,16 +67,16 @@ document.addEventListener('DOMContentLoaded', function() {
         // Add listeners to Buy Buttons
         buyButtons.forEach(button => {
             // Use the previously defined handler function
-            button.addEventListener('click', function(event) {
-                 event.preventDefault(); // Prevent default button action
+            button.addEventListener('click', function (event) {
+                event.preventDefault(); // Prevent default button action
 
-                 const trackName = this.getAttribute('data-track-name');
-                 const fullMessage = `${messageTemplate}${trackName}`;
-                 const encodedMessage = encodeURIComponent(fullMessage);
-                 const whatsappUrl = `https://wa.me/${whatsappPhoneNumber}?text=${encodedMessage}`;
+                const trackName = this.getAttribute('data-track-name');
+                const fullMessage = `${messageTemplate}${trackName}`;
+                const encodedMessage = encodeURIComponent(fullMessage);
+                const whatsappUrl = `https://wa.me/${whatsappPhoneNumber}?text=${encodedMessage}`;
 
-                 window.open(whatsappUrl, '_blank');
-                 console.log(`Attempting to open WhatsApp for track: ${trackName}`);
+                window.open(whatsappUrl, '_blank');
+                console.log(`Attempting to open WhatsApp for track: ${trackName}`);
             });
         });
 
