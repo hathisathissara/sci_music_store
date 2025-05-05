@@ -1,46 +1,138 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Music Hub</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Buy Sci-Fi Music Tracks | Futuristic Soundscapes</title>
+
+  <!-- Stylesheets -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet" />
+
+  <!-- Custom Styles -->
+  <style>
+    body {
+      font-family: 'Orbitron', sans-serif;
+      background-color: #0d0d0d;
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+    }
+
+    header a {
+      color: white;
+    }
+
+    header a:hover {
+      color: #00f2ff;
+    }
+
+    #particles-js {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+    }
+
+    .content {
+      position: relative;
+      z-index: 2;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+  </style>
 </head>
 
-<body class="text-white" style="font-family: 'Orbitron', sans-serif; background-color: #0d0d0d;">
-  <div class="d-flex flex-column min-vh-100" style="background: url('https://img.freepik.com/free-photo/modern-futuristic-sci-fi-background_35913-2224.jpg?uid=R183750515&ga=GA1.1.375319987.1741079138&semt=ais_hybrid&w=740') no-repeat center center/cover;">
+<body class="text-white">
 
-    <!-- Header Bar -->
+  <!-- Particles Background -->
+  <div id="particles-js"></div>
+
+  <!-- Main Content -->
+  <div class="content">
+
+    <!-- Header -->
     <header class="d-flex justify-content-between align-items-center px-4 py-3">
       <div class="d-flex align-items-center">
-        <img src="https://img.icons8.com/ios-filled/50/00f2ff/musical-notes.png" alt="Logo" width="40" class="me-2">
+        <img src="https://img.icons8.com/ios-filled/50/00f2ff/musical-notes.png" alt="Logo" width="40" class="me-2" />
         <h1 class="h4 mb-0 text-info">Music Hub</h1>
       </div>
       <div class="d-flex gap-3">
-        <a href="#" class="text-white"><i class="fab fa-facebook fa-lg"></i></a>
-        <a href="#" class="text-white"><i class="fab fa-twitter fa-lg"></i></a>
-        <a href="#" class="text-white"><i class="fab fa-instagram fa-lg"></i></a>
-        <a href="#" class="text-white"><i class="fab fa-youtube fa-lg"></i></a>
+        <a href="#"><i class="fab fa-spotify fa-lg"></i></a>
+        <a href="#"><i class="fab fa-facebook fa-lg"></i></a>
+        <a href="#"><i class="fab fa-instagram fa-lg"></i></a>
+        <a href="#"><i class="fab fa-youtube fa-lg"></i></a>
+        <a href="#"><i class="fab fa-twitter fa-lg"></i></a>
       </div>
     </header>
 
-    <!-- Hero Content -->
+    <!-- Hero Section -->
     <main class="flex-grow-1 d-flex align-items-center justify-content-center text-center">
       <div class="bg-dark bg-opacity-75 p-5 rounded animate__animated animate__fadeIn">
-        <h2 class="display-3 fw-bold text-info animate__animated animate__fadeInDown" style="text-shadow: 0 0 10px #00f2ff;">Explore the Future of Music</h2>
-        <p class="lead text-light mt-3 animate__animated animate__fadeInUp animate__delay-1s">Discover cutting-edge music products with a sci-fi twist.</p>
-        <a href="shop/index.php" class="btn btn-lg btn-info text-dark mt-4 animate__animated animate__pulse animate__infinite shadow">🚀 Shop Now</a>
+        <h2 class="display-3 fw-bold text-info animate__animated animate__fadeInDown"
+          style="text-shadow: 0 0 10px #00f2ff;">
+          Explore the Future of Music
+        </h2>
+        <p class="lead text-light mt-3 animate__animated animate__fadeInUp animate__delay-1s">
+          Discover cutting-edge music products with a sci-fi twist.
+        </p>
+        <a href="shop/index.php"
+          class="btn btn-lg btn-info text-dark mt-4 animate__animated animate__pulse animate__infinite shadow">
+          🚀 Shop Now
+        </a>
       </div>
     </main>
 
   </div>
 
+  <!-- Scripts -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
+  <script>
+    /* Initialize particles.js */
+    particlesJS("particles-js", {
+      particles: {
+        number: {
+          value: 80,
+          density: {
+            enable: true,
+            value_area: 800
+          }
+        },
+        color: {
+          value: "#00f2ff"
+        },
+        shape: {
+          type: "circle"
+        },
+        opacity: {
+          value: 0.5
+        },
+        size: {
+          value: 3
+        },
+        move: {
+          enable: true,
+          speed: 2
+        }
+      },
+      interactivity: {
+        events: {
+          onhover: {
+            enable: true,
+            mode: "repulse"
+          }
+        }
+      },
+      retina_detect: true
+    });
+  </script>
 </body>
 
 </html>
