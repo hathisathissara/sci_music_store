@@ -8,6 +8,12 @@
 <!-- --- Website Footer --- -->
 <footer>
         <p class="text-center">© <?php echo date("Y"); ?> Sci-Fi Music Tracks. All rights reserved.</p>
+        <p class="text-center">Website by <a href="https://hathisathissara.unaux.com/" target="_blank">Hathisa Thissara</a></p>
+        <p class="text-center">
+                <a href="privacy_policy.php" class="text-center">Privacy Policy</a> |
+                <a href="terms_of_service.php" class="text-center">Terms of Service</a>
+        </p>
+
         <!-- Add other footer links/info here if needed -->
 </footer>
 
