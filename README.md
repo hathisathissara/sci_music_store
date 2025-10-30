@@ -80,7 +80,7 @@ You need a local server environment that can run PHP and MySQL.
     Clone the project into your local server's web directory.
     *   For **XAMPP**, this is typically the `htdocs` folder (`C:\xampp\htdocs`).
     ```sh
-    git clone [Link to your repository] C:/xampp/htdocs/[your-project-folder]
+    git clone https://github.com/hathisathissara/sci_music_store C:/xampp/htdocs/[your-project-folder]
     ```
 
 2.  **Start your server:**
